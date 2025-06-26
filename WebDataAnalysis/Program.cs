@@ -1,7 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using WebDataAnalysis.Infrastructure.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//ConnectionString
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<WebDataAnalysisDbContext>(options =>
+{
+    options.UseNpgsql(connectionString, x => x.MigrationsAssembly("WebDataAnalysis.Infrastructure"));
+});
 
 var app = builder.Build();
 

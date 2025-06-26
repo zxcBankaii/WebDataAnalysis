@@ -6,4 +6,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\WebDataAnalysis.Infrastructure\WebDataAnalysis.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>

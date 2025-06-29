@@ -29,7 +29,7 @@ public class ParameteresRepository : IParametersRepository
         return await _context.Parameteres.FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public async Task<List<Parameteres>> GetAllAsync(Parameteres entity)
+    public async Task<List<Parameteres>> GetAllAsync()
     {
         return await _context.Parameteres.ToListAsync();
     }

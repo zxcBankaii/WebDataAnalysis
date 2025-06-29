@@ -29,7 +29,7 @@ public class DeviceRepository : IDeviceRepository
         return await _context.Devices.FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public async Task<List<Device>> GetAllAsync(Device entity)
+    public async Task<List<Device>> GetAllAsync()
     {
         return await _context.Devices.ToListAsync();
     }

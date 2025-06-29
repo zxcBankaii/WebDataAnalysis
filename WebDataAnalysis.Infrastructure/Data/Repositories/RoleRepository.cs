@@ -28,7 +28,7 @@ public class RoleRepository : IRoleRepository
         return await _context.Roles.FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public async Task<List<Role>> GetAllAsync(Role entity)
+    public async Task<List<Role>> GetAllAsync()
     {
         return await _context.Roles.ToListAsync();
     }

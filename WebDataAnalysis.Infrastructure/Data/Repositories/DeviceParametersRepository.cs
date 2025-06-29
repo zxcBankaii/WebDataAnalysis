@@ -30,7 +30,7 @@ public class DeviceParametersRepository : IDeviceParametersRepository
         return await _context.DeviceParameters.FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public async Task<List<DeviceParameters>> GetAllAsync(DeviceParameters entity)
+    public async Task<List<DeviceParameters>> GetAllAsync()
     {
         return await _context.DeviceParameters.ToListAsync();
     }

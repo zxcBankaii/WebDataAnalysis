@@ -30,7 +30,7 @@ public class DeviceMappingRepository : IDeviceMappingRepository
         return await _context.DeviceMappings.FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public async Task<List<DeviceMapping>> GetAllAsync(DeviceMapping entity)
+    public async Task<List<DeviceMapping>> GetAllAsync()
     {
         return await _context.DeviceMappings.ToListAsync();
     }

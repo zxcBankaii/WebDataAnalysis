@@ -20,6 +20,8 @@ public class WebDataAnalysisDbContext : DbContext
     public DbSet<Parameteres> Parameteres { get; set; }
     public DbSet<Role> Roles { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<StatusDevice> StatusDevices { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,6 +33,8 @@ public class WebDataAnalysisDbContext : DbContext
         modelBuilder.ApplyConfiguration(new ParameteresConfiguration());
         modelBuilder.ApplyConfiguration(new RoleConfiguration());
         modelBuilder.ApplyConfiguration(new UserConfiguration());
+        modelBuilder.ApplyConfiguration(new StatusDeviceConfiguration());
+        modelBuilder.ApplyConfiguration(new CategoryConfiguration());
 
         base.OnModelCreating(modelBuilder);
 

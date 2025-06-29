@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WebDataAnalysis.Infrastructure.Data;
@@ -11,9 +12,11 @@ using WebDataAnalysis.Infrastructure.Data;
 namespace WebDataAnalysis.Infrastructure.Migrations
 {
     [DbContext(typeof(WebDataAnalysisDbContext))]
-    partial class WebDataAnalysisDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250629160709_AddStatusAndCategory2")]
+    partial class AddStatusAndCategory2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

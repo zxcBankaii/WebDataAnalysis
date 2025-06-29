@@ -17,8 +17,5 @@ public class DeviceConfiguration : IEntityTypeConfiguration<Device>
         builder.HasOne(x => x.Category)
             .WithMany(x => x.Devices)
             .OnDelete(DeleteBehavior.Cascade);
-        builder.HasOne(x => x.StatusDevice)
-            .WithMany(x => x.Devices)
-            .OnDelete(DeleteBehavior.Cascade);
     }
 }

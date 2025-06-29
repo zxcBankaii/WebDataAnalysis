@@ -15,5 +15,8 @@ public class FindDeviceConfiguration : IEntityTypeConfiguration<FindDevice>
         builder.HasOne(x => x.User)
             .WithMany(x => x.FindDevices)
             .OnDelete(DeleteBehavior.NoAction);
+        builder.HasOne(x => x.StatusDevice)
+            .WithMany(x => x.FindDevices)
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }

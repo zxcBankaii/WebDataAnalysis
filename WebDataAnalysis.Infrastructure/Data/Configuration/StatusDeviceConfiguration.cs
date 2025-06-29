@@ -8,7 +8,7 @@ public class StatusDeviceConfiguration : IEntityTypeConfiguration<StatusDevice>
 {
     public void Configure(EntityTypeBuilder<StatusDevice> builder)
     {
-        builder.HasMany(x => x.Devices)
+        builder.HasMany(x => x.FindDevices)
             .WithOne(x => x.StatusDevice)
             .OnDelete(DeleteBehavior.SetNull);
     }

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using WebDataAnalysis.Application.Interfaces;
 using WebDataAnalysis.Domain.Interfaces;
 using WebDataAnalysis.Domain.Interfaces.Bases;
 using WebDataAnalysis.Infrastructure.Data;
@@ -16,15 +17,17 @@ builder.Services.AddDbContext<WebDataAnalysisDbContext>(options =>
     options.UseNpgsql(connectionString, x => x.MigrationsAssembly("WebDataAnalysis.Infrastructure"));
 });
 
-builder.Services.AddTransient<IDeviceMappingRepository, DeviceMappingRepository>();
-builder.Services.AddTransient<IDeviceParametersRepository, DeviceParametersRepository>();
-builder.Services.AddTransient<IDeviceRepository, DeviceRepository>();
-builder.Services.AddTransient<IFindDeviceRepository, FindDeviceRepository>();
-builder.Services.AddTransient<IParametersRepository, ParameteresRepository>();
-builder.Services.AddTransient<IRoleRepository, RoleRepository>();
-builder.Services.AddTransient<IUserRepository, UserRepository>();
-builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
-builder.Services.AddTransient<IStatusDeviceRepository, StatusDeviceRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Services.AddScoped<IDeviceMappingRepository, DeviceMappingRepository>();
+builder.Services.AddScoped<IDeviceParametersRepository, DeviceParametersRepository>();
+builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
+builder.Services.AddScoped<IFindDeviceRepository, FindDeviceRepository>();
+builder.Services.AddScoped<IParametersRepository, ParameteresRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IStatusDeviceRepository, StatusDeviceRepository>();
 
 var app = builder.Build();
 

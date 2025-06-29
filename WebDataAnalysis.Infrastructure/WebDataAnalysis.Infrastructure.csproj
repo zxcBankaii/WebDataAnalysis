@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\WebDataAnalysis.Application\WebDataAnalysis.Application.csproj" />
       <ProjectReference Include="..\WebDataAnalysis.Domain\WebDataAnalysis.Domain.csproj" />
     </ItemGroup>
 

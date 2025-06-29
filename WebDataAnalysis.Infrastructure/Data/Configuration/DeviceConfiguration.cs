@@ -14,6 +14,11 @@ public class DeviceConfiguration : IEntityTypeConfiguration<Device>
         builder.HasMany(x => x.DeviceParameteres)
             .WithOne(x => x.Device)
             .OnDelete(DeleteBehavior.Cascade);
-        
+        builder.HasOne(x => x.Category)
+            .WithMany(x => x.Devices)
+            .OnDelete(DeleteBehavior.Cascade);
+        builder.HasOne(x => x.StatusDevice)
+            .WithMany(x => x.Devices)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

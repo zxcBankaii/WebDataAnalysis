@@ -19,4 +19,8 @@
       <ProjectReference Include="..\WebDataAnalysis.Domain\WebDataAnalysis.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Mapper\" />
+    </ItemGroup>
+
 </Project>

@@ -38,4 +38,14 @@ public class DeviceRepository : IDeviceRepository
     {
         _context.Devices.Update(entity);
     }
+
+    public async Task<List<Device>> GetListByIdCategory(Guid idCategory)
+    {
+        return await _context.Devices.Where(x => x.Category.Id == idCategory).ToListAsync();
+    }
+
+    public async Task<List<Device>> GetListByListIdCategories(List<Guid> idCategory)
+    {
+        return await _context.Devices.Where(x => idCategory.Contains(x.Category.Id)).ToListAsync();
+    }
 }

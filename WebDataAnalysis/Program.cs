@@ -4,6 +4,7 @@ using WebDataAnalysis.Domain.Interfaces;
 using WebDataAnalysis.Domain.Interfaces.Bases;
 using WebDataAnalysis.Infrastructure.Data;
 using WebDataAnalysis.Infrastructure.Data.Repositories;
+using WebDataAnalysis.Infrastructure.Services.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,11 @@ builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IStatusDeviceRepository, StatusDeviceRepository>();
+
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<IMapper, MapperAdapter>();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
 
 var app = builder.Build();
 

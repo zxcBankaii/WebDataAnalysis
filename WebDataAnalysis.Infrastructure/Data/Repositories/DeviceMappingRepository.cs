@@ -4,6 +4,7 @@ using WebDataAnalysis.Domain.Interfaces.Bases;
 
 namespace WebDataAnalysis.Infrastructure.Data.Repositories;
 
+
 public class DeviceMappingRepository : IDeviceMappingRepository
 {
 
@@ -33,5 +34,15 @@ public class DeviceMappingRepository : IDeviceMappingRepository
     public async Task<List<DeviceMapping>> GetAllAsync()
     {
         return await _context.DeviceMappings.ToListAsync();
+    }
+
+    public async Task<List<DeviceMapping>> GetListByListIdDevices(List<Guid> idDevices)
+    {
+        return await _context.DeviceMappings.Where(x => idDevices.Contains(x.Device.Id)).ToListAsync();
+    }
+
+    public async Task<List<DeviceMapping>> GetListByIdDevices(Guid idDevice)
+    {
+        return await _context.DeviceMappings.Where(x => x.Device.Id == idDevice).ToListAsync();
     }
 }
